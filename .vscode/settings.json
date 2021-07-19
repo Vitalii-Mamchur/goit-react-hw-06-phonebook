@@ -1,0 +1,20 @@
+{
+  "files.autoSave": "onFocusChange",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "cSpell.words": [
+    "Hermione",
+    "Phonebook",
+    "browserslist"
+  ],
+  "cSpell.ignoreWords": [
+    "contact",
+    "delete",
+    "goit",
+    "hw",
+    "phonebook",
+    "react"
+  ]
+}
