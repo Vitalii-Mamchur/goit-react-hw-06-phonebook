@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import contactActions from "../../redux/Phonebook/phonebook-actions";
+import { addContact } from "../../redux/Phonebook/phonebook-actions";
 import { v4 as uuidv4 } from "uuid";
 import styles from "./Form.module.css";
 
@@ -80,6 +80,6 @@ class Form extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  onSubmit: (name, number) => dispatch(contactActions.addContact(name, number)),
+  onSubmit: (name, number) => dispatch(addContact(name, number)),
 });
 export default connect(null, mapDispatchToProps)(Form);
