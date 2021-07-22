@@ -1,18 +1,23 @@
 import { combineReducers } from "redux";
 import { createReducer } from "@reduxjs/toolkit";
 import { addContact, deleteContact, changeFilter } from "./phonebook-actions";
-import defaultContacts from "../../json/contacts.json";
+// import defaultContacts from "../../json/contacts.json";
 
-const initialState = defaultContacts;
+const contacts = [];
 
-const items = createReducer(initialState, {
-  [addContact]: (state, action) => [...state, action.payload],
-  [deleteContact]: (state, action) =>
-    state.filter((contact) => contact.id !== action.payload),
+const items = createReducer(contacts, {
+  [addContact]: (state, { payload }) => {
+    if (state.map((contact) => contact.name).includes(payload.name)) {
+      return alert(`${payload.name} is already exist`);
+    }
+    return [...state, payload];
+  },
+  [deleteContact]: (state, { payload }) =>
+    state.filter((contact) => contact.id !== payload),
 });
 
 const filter = createReducer("", {
-  [changeFilter]: (state, action) => action.payload,
+  [changeFilter]: (_, { payload }) => payload,
 });
 
 export default combineReducers({
